@@ -1,0 +1,1 @@
+SELECT prenom, nom, naissance FROM etudiants BETWEEN 1998 AND 2018;

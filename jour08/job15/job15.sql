@@ -1,0 +1,1 @@
+SELECT salles.nom, etage.nom FROM salles JOIN etages WHERE salles.id=etage.id;
