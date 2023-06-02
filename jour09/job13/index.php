@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,26 +7,28 @@
     <title>Document</title>
 </head>
 <body>
-     <?php
+    <?php
 // Informations de connexion à la base de données
-$bdd = new PDO('mysql:host=localhost;dbname=jour08', "root");
-$requete = $bdd->prepare("SELECT nom, capacite FROM salles");
+$bdd = new PDO('mysql:host=localhost;dbname=jour08', 'root', 'root');
+$requete = $bdd->prepare("SELECT salles.nom AS SN, etage.nom AS EN FROM salles JOIN etage ON salles.id_etage = etage.id_etage");
 $requete->execute();
 $users = $requete->fetchAll();
-
+//récuprère tous les éléments de bdd
 echo "<table border='1'>";
 echo "<thead>";
 echo "<tr>";
-echo "<th>Nom</th>";
-echo "<th>capacite</th>";
+echo "<th>Nom S</th>";
+echo "<th>Nom E</th>";
 echo "</tr>";
 echo "</thead>";
 echo "<tbody>";
 
+//afishe meanings de bdd
 foreach($users as $key => $user){
     echo '<tr>';
-    echo '<td>' . $user['nom'] . '</td>';
-    echo '<td>' . $user['capacite'] . '</td>';
+    echo '<td>' . $user['SN'] . '</td>';
+    echo '<td>' . $user['EN'] . '</td>';
+
     echo '</tr>';
 
 }

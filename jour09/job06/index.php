@@ -9,26 +9,23 @@
 <body>
      <?php
 // Informations de connexion à la base de données
-$bdd = new PDO('mysql:host=localhost;dbname=jour08', "root");
-$requete = $bdd->prepare("SELECT prenom, nom, naissance FROM etudiants WHERE sex='Femme' ");
+$bdd = new PDO('mysql:host=localhost;dbname=jour08', 'root', 'root');
+$requete = $bdd->prepare("SELECT COUNT(*)AS nb_etudiants FROM etudiants");
 $requete->execute();
 $users = $requete->fetchAll();
-
+//récuprère tous les éléments de bdd
 echo "<table border='1'>";
 echo "<thead>";
 echo "<tr>";
-echo "<th>prenom</th>";
-echo "<th>nom</th>";
-echo "<th>naissance</th>";
+echo "<th>nb_etudiants</th>";
 echo "</tr>";
 echo "</thead>";
 echo "<tbody>";
 
+//afishe meanings de bdd
 foreach($users as $key => $user){
     echo '<tr>';
-    echo '<td>' . $user['prenom'] . '</td>';
-     echo '<td>' . $user['nom'] . '</td>';
-    echo '<td>' . $user['neissance'] . '</td>';
+    echo '<td>' . $user['nb_etudiants'] . '</td>';
     echo '</tr>';
 
 }

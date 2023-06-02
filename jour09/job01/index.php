@@ -9,7 +9,7 @@
 <body>
     <?php
 // Informations de connexion à la base de données
-$bdd = new PDO('mysql:host=localhost;dbname=jour08', "root");
+$bdd = new PDO('mysql:host=localhost;dbname=jour08', 'root', 'root');
 $requete = $bdd->prepare("SELECT * FROM etudiants");
 $requete->execute();
 $users = $requete->fetchAll();
